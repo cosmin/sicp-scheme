@@ -1,0 +1,16 @@
+(define (f n)
+  (cond ((< n 3) n)
+        (else (+ (f (- n 1)) (* 2 (f (- n 2))) (* 3 (f (- n 3)))))))
+
+(define (f* n)
+  (define (compute-current-n n3 n2 n1)
+    (+ n1 (* 2 n2) (* 3 n3)))
+  (define (f-iter n3 n2 n1 current-n)
+    (cond ((> current-n n) n1)
+          (else (f-iter n2 n1 (compute-current-n n3 n2 n1) (+ 1 current-n)))))
+  (f-iter 0 1 2 3))
+
+(= (f 3) (f* 3))
+(= (f 4) (f* 4))
+(= (f 5) (f* 5))
+(= (f 6) (f* 6))
