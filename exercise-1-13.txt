@@ -1,0 +1,19 @@
+Fib(1) = 1 
+Fib(2) = 1
+SQ5 = sqrt(5)
+
+Fib(1) = ((1+ SQ5 - 1 + SQ5)/2) / SQ5
+       = SQ5 / SQ5
+       = 1
+
+Fib(2) = ((1 + 2*SQ5 + 5)/4 - (1 - 2*SQ5 + 5)/4) / SQ5
+       = ((1/4 + SQ5/2 + 5/4) - (1/4 - SQ5/2 + 5/4)) / SQ5
+       = (1/4 - 1/4 + 5/4 - 5/4 + SQ5) / SQ5
+       = 1
+
+Fib(n) = Fib(n-1) + Fib(n-2)
+       = (q^n-1 - v^n-1) / SQ5 + (q^n-2 - v^n-2) / SQ5
+       = ((q^n-1 + q^n-2) - (v^n-1 - v^n-2)) / SQ5
+       = (q^n - v^n) / SQ5
+
+Fib(n) = q^n/SQ5 - v^n/SQ5  AND  v^n/SQ5 < 0.5 therefore q^n/SQ5 is closest int to Fib(n)
